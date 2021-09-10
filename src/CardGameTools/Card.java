@@ -21,6 +21,14 @@ public class Card {
         }
     }
 
+    protected String getSuit() {
+        return suit;
+    }
+
+    protected String getValue() {
+        return value;
+    }
+
     public String toString() {
         return "The " + value + " of " + suit;
     }
