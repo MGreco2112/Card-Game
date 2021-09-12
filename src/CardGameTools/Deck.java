@@ -38,56 +38,50 @@ public class Deck {
     }
 
     public void draw() {
-        if (CARDS.size() != 0) {
-            Random randomCard = new Random();
 
-            int pickedCard = randomCard.nextInt(CARDS.size());
+        Random randomCard = new Random();
 
-            System.out.println(CARDS.get(pickedCard));
-            DISCARD.add(CARDS.get(pickedCard));
-            CARDS.remove(pickedCard);
-        } else {
-            reshuffleDeck();
-        }
+        int pickedCard = randomCard.nextInt(CARDS.size());
+
+        System.out.println(CARDS.get(pickedCard));
+        DISCARD.add(CARDS.get(pickedCard));
+        CARDS.remove(pickedCard);
+
 
     }
 
     public void draw(int numberOfCards) {
 
-        if (CARDS.size() != 0) {
 
-            int cardsDiscarded = DISCARD.size();
 
-            while (DISCARD.size() < cardsDiscarded + numberOfCards) {
-                draw();
-            }
-        } else {
-            reshuffleDeck();
+        int cardsDiscarded = DISCARD.size();
+
+        while (DISCARD.size() < cardsDiscarded + numberOfCards) {
+            draw();
         }
+
 
     }
 
     public void getSpecificCard(String value, String suit) {
-        if (CARDS.size() != 0) {
 
-            Card pickedCard = null;
 
-            for (Card card : CARDS) {
-                if (card.getSuit().equals(suit) && card.getValue().equals(value)) {
-                    pickedCard = card;
-                    System.out.println(pickedCard);
-                    DISCARD.add(pickedCard);
-                }
+        Card pickedCard = null;
+
+        for (Card card : CARDS) {
+            if (card.getSuit().equals(suit) && card.getValue().equals(value)) {
+                pickedCard = card;
+                System.out.println(pickedCard);
+                DISCARD.add(pickedCard);
             }
-
-            if (pickedCard != null) {
-                CARDS.remove(pickedCard);
-            } else {
-                System.out.println("Desired card is not in the deck");
-            }
-        } else {
-            reshuffleDeck();
         }
+
+        if (pickedCard != null) {
+            CARDS.remove(pickedCard);
+        } else {
+            System.out.println("Desired card is not in the deck");
+        }
+
 
 
     }
