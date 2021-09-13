@@ -6,11 +6,13 @@ import java.util.Random;
 
 public class Deck {
     private final int DECK_SIZE;
+    private final int CARDS_PER_SUIT;
     private final List<Card> CARDS = new ArrayList<>();
     private final List<Card> DISCARD = new ArrayList<>();
 
     public Deck() {
         DECK_SIZE = 52;
+        CARDS_PER_SUIT = 13;
         addAllCards();
     }
 
@@ -25,7 +27,7 @@ public class Deck {
         while (CARDS.size() < DECK_SIZE) {
             CARDS.add(new Card(Card.SUITS[suitValue], cardValue));
 
-            if (CARDS.size() % 13 == 0) {
+            if (CARDS.size() % CARDS_PER_SUIT == 0) {
                 suitValue++;
             }
 
